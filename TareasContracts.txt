@@ -1,0 +1,12 @@
+Contract 1 (with view): 0xB2BcFbE88aaa76c7D5d939A3ad1eef0Fa7eD4a98
+
+function getMessage() public view returns(string memory) {
+    return message;
+}
+
+
+Contract 2 (without view): 0xAE4950a4Ce48054a9a081556C26eB6F4808f9117
+
+function getMessage() public returns(string memory) {
+    return message;
+}
