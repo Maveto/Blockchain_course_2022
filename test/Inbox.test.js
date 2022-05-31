@@ -8,9 +8,19 @@ contract('Inbox', accounts => {
         assert.equal(await instance.getMessage.call(), 'Hi');
     });
 
-    it('setMessage', async () => {
+    it('setMessage should change value', async () => {
         const instance = await Inbox.deployed();
         await instance.setMessage('Hi Mauricio', {from: accounts[0]});
-        assert(await instance.getMessage.call(), 'Hi Mauricio');
+        assert.equal(await instance.getMessage.call(), 'Hi Mauricio');
     });
+
+    it('setMessage should not change value', async () => {
+        try{
+            const instance = await Inbox.deployed();
+            await instance.setMessage('Hi Mauricio', {from: accounts[1]});
+        }catch(e){
+            assert.equal(e.reason, 'Only the owner can change this!');
+        }
+    });
+    
 });
