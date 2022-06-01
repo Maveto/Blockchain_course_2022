@@ -23,7 +23,6 @@ contract Universidad {
 
     constructor() {
         teacher = msg.sender;
-        lastId = 0;
     }
 
     function addReview(string memory name) public teacherOnly(msg.sender) isClosed() {
