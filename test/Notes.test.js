@@ -14,4 +14,12 @@ contract("Notes", accounts => {
         assert.equal(9, grade);
     });
 
+    it("Only professor can call Evaluar", async () => {
+        try {
+            await instance.Evaluar("Mauri", 9, {from: accounts[1]});
+            assert(false);
+        } catch (e) {
+            assert.equal("No tienes permisos para ejecutar esta funcion.", e.reason);
+        }
+    });
 });
