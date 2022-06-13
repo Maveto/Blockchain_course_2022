@@ -58,7 +58,6 @@ contract("Lottery", accounts => {
         const total = parseFloat(initialBalancePlayer) + parseFloat(initialBalanceLottery);
         
         const players = await instance.getPlayers.call();
-
         assert.equal(finalBalancePlayer, total);
         assert.equal(0, players.length);
     });

@@ -19,7 +19,7 @@ export const connectWallet = async () => {
         await window.ethereum.request({ method: "eth_requestAccounts" });
         alert("Wallet connected")
     } catch (e) {
-        if(e.code == 4001) {
+        if(e.code === 4001) {
             alert("Error connecting");
         } else {
             alert(e.message);
