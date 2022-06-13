@@ -118,7 +118,7 @@ module.exports = {
   // }
 
   contracts_directory: './src/ethereum/contracts/',
-  contracts_build_directory: '.src/ethereum/abis/',
+  contracts_build_directory: './src/ethereum/abis/',
   test_directory:'./src/ethereum/test',
   migrations_directory:'./src/ethereum/migrations'
 };
