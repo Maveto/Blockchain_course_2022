@@ -57,7 +57,7 @@ function App() {
     //@ts-ignore
     const Web3 = window.web3;
     const accounts = await Web3.eth.getAccounts();
-    setMessage("Waiting on transaction success");
+    setMessage("Waiting on transaction success...");
 
     await contract.methods.enter().send({
       from: accounts[0],
@@ -73,7 +73,7 @@ function App() {
     //@ts-ignore
     const Web3 = window.web3;
     const accounts = await Web3.eth.getAccounts();
-    setMessage("Waiting on transaction success");
+    setMessage("Waiting on transaction success...");
 
     await contract.methods.pickWinner().send({
       from: accounts[0]
@@ -89,16 +89,18 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
           
-        <button onClick={() => {connectWallet()}}>Connect</button>
-        <button onClick={() => {onPickWinner()}}>Pick Winner</button>
+        <button onClick={() => {connectWallet()}} className="btn btn-success">Connect</button>
+        <button onClick={() => {onPickWinner()}} className="btn btn-success">Pick Winner</button>
 
         <p>Players: {players.length}</p>
         <p>Balance: {balance}</p>
         <p>Manager: {manager}</p>
 
         <p>Monto minimo mayor 2 ETH</p>
-        <input type="text" value={value} onChange={(event) => {setValue(event.target.value)}}/>
-        <button onClick={() => {onEnter()}}>Enter</button>
+        <div className="col align-self-center">
+          <input type="number" value={value} onChange={(event) => {setValue(event.target.value)}} className="form-control" />
+          <button onClick={() => {onEnter()}} className="btn btn-warning">Enter</button>
+        </div>
         <p>{message}</p>
       </header>
     </div>
