@@ -45,37 +45,61 @@ function App() {
     }
   };
 
+  const loadPlayers = async () => setPlayers(await contract.methods.getPlayers().call());
+
+  const loadBalance = async () => {
+    //@ts-ignore
+    const Web3 = window.web3;
+    setBalance(await Web3.eth.getBalance(contract.options.address))
+  };
+
   const onEnter = async () => {
-      //@ts-ignore
-      const Web3 = window.web3;
-      const accounts = await Web3.eth.getAccounts();
-      setMessage("Waiting on transaction success");
-      await contract.methods.enter().send({
-        from: accounts[0],
-        value: Web3.utils.toWei(value, "ether")
-      });
-      setMessage("Transaction Success, Welcome to the lottery");
+    //@ts-ignore
+    const Web3 = window.web3;
+    const accounts = await Web3.eth.getAccounts();
+    setMessage("Waiting on transaction success");
+
+    await contract.methods.enter().send({
+      from: accounts[0],
+      value: Web3.utils.toWei(value, "ether")
+    });
+
+    setMessage("Transaction Success, Welcome to the lottery");
+    loadBalance();
+    loadPlayers();
+  }
+
+  const onPickWinner = async () => {
+    //@ts-ignore
+    const Web3 = window.web3;
+    const accounts = await Web3.eth.getAccounts();
+    setMessage("Waiting on transaction success");
+
+    await contract.methods.pickWinner().send({
+      from: accounts[0]
+    });
+
+    setMessage("Transaction Success, Welcome to the lottery");
+    loadBalance();
+    loadPlayers();
   }
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
           
-          <button onClick={() => {connectWallet()}}>Connect</button>
-          {/* <button onClick={() => {loadBlockchainData()}}>Load</button> */}
+        <button onClick={() => {connectWallet()}}>Connect</button>
+        <button onClick={() => {onPickWinner()}}>Pick Winner</button>
 
-          <p>Players: {players.length}</p>
-          <p>Balance: {balance}</p>
-          <p>Manager: {manager}</p>
+        <p>Players: {players.length}</p>
+        <p>Balance: {balance}</p>
+        <p>Manager: {manager}</p>
 
-          <p>Monto minimo mayor 2 ETH</p>
-          <input type="text" value={value} onChange={(event) => {setValue(event.target.value)}}/>
-          <button onClick={() => {onEnter()}}>Enter</button>
-          <p>{message}</p>
+        <p>Monto minimo mayor 2 ETH</p>
+        <input type="text" value={value} onChange={(event) => {setValue(event.target.value)}}/>
+        <button onClick={() => {onEnter()}}>Enter</button>
+        <p>{message}</p>
       </header>
     </div>
   );
