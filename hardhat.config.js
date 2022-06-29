@@ -13,6 +13,9 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more
 
+const mnemonic = '';
+const privateKey = '';
+
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
@@ -21,11 +24,18 @@ module.exports = {
   networks: {
     rinkeby: {
       url: 'https://eth-rinkeby.alchemyapi.io/v2/4lvH_8d1h9YpZOlW5fXNrfhD_lISQz2M',
-      accounts: ['']
+      accounts: [privateKey]
     },
     goerli: {
       url: 'https://eth-goerli.alchemyapi.io/v2/_6bOgbwPlFyLvR95MhTQfYCFTDl7WcX9',
-      accounts: ['']
+      accounts: [privateKey]
+    },
+    bscTestnet: {
+      url: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
+      chainId: 97,
+      accounts: {
+        mnemonic: mnemonic
+      }
     }
   },
   paths: {
