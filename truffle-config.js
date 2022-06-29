@@ -56,6 +56,10 @@ module.exports = {
       provider: () => new HDWalletProvider(mnemonic, 'https://data-seed-prebsc-1-s1.binance.org:8545/'),
       network_id: 97
     },
+    ethereum: {
+      provider: () => new HDWalletProvider(mnemonic, 'https://mainnet.infura.io/v3/91a27e9b134947a6b50e70898b276926'),
+      network_id: 1
+    },
     //
     // An additional network, but with some advanced options…
     // advanced: {
