@@ -36,6 +36,13 @@ module.exports = {
       accounts: {
         mnemonic: mnemonic
       }
+    },
+    bsc: {
+      url: 'https://bsc-dataseed.binance.org',
+      chainId: 56,
+      accounts: {
+        mnemonic: mnemonic
+      }
     }
   },
   paths: {
