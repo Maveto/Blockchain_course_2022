@@ -48,18 +48,18 @@ module.exports = {
      port: 7545,            // Standard Ethereum port (default: none)
      network_id: "*",       // Any network (default: none)
     },
-    rinkeby: {
-      provider: () => new HDWalletProvider(mnemonic, 'https://rinkeby.infura.io/v3/6ea9e5f3f707452abe004af718a987ef'),
-      network_id: 4
-    },
-    bscTestnet: {
-      provider: () => new HDWalletProvider(mnemonic, 'https://data-seed-prebsc-1-s1.binance.org:8545/'),
-      network_id: 97
-    },
-    ethereum: {
-      provider: () => new HDWalletProvider(mnemonic, 'https://mainnet.infura.io/v3/91a27e9b134947a6b50e70898b276926'),
-      network_id: 1
-    },
+    // rinkeby: {
+    //   provider: () => new HDWalletProvider(mnemonic, 'https://rinkeby.infura.io/v3/6ea9e5f3f707452abe004af718a987ef'),
+    //   network_id: 4
+    // },
+    // bscTestnet: {
+    //   provider: () => new HDWalletProvider(mnemonic, 'https://data-seed-prebsc-1-s1.binance.org:8545/'),
+    //   network_id: 97
+    // },
+    // ethereum: {
+    //   provider: () => new HDWalletProvider(mnemonic, 'https://mainnet.infura.io/v3/91a27e9b134947a6b50e70898b276926'),
+    //   network_id: 1
+    // },
     //
     // An additional network, but with some advanced options…
     // advanced: {

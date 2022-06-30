@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 8vmin;
   pointer-events: none;
 }
 
@@ -35,4 +35,53 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.content-container {
+  background-color: #637178;
+  height: 100vh;
+  /* overflow: auto; */
+  /* border: 3px solid red; */
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+}
+
+.myForm {
+  /* border: 3px solid red; */
+  min-height: 35vh;
+  margin: 2%;
+  padding: 2%;
+  background-color: #292B2C;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: calc(10px + 2vmin); 
+  min-width: 30%;
+  color: white;
+}
+
+.title {
+  color: white;
+  margin-left: 2%;
+  margin-bottom: 3%;
+}
+
+input {
+  margin-bottom: 3%;
+}
+
+/* button {
+  margin-top: 1%;
+} */
+
+p {
+  font-size: 1.1rem;
 }

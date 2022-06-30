@@ -14,7 +14,7 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 // Go to https://hardhat.org/config/ to learn more
 
 const mnemonic = '';
-const privateKey = '';
+const privateKey = '8cc63eb63eff2b4b2567dc2df353ef4835e4926fd6aad3b43fbea079d5364c52';
 
 /**
  * @type import('hardhat/config').HardhatUserConfig
@@ -26,28 +26,28 @@ module.exports = {
       url: 'https://eth-rinkeby.alchemyapi.io/v2/4lvH_8d1h9YpZOlW5fXNrfhD_lISQz2M',
       accounts: [privateKey]
     },
-    goerli: {
-      url: 'https://eth-goerli.alchemyapi.io/v2/_6bOgbwPlFyLvR95MhTQfYCFTDl7WcX9',
-      accounts: [privateKey]
-    },
-    bscTestnet: {
-      url: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
-      chainId: 97,
-      accounts: {
-        mnemonic: mnemonic
-      }
-    },
-    bsc: {
-      url: 'https://bsc-dataseed.binance.org',
-      chainId: 56,
-      accounts: {
-        mnemonic: mnemonic
-      }
-    },
-    ethereum: {
-      url: 'https://eth-mainnet.alchemyapi.io/v2/_0nmAqdvnREh77uNm3ilJR5W4wvCYNFX',
-      accounts: [privateKey]
-    }
+    // goerli: {
+    //   url: 'https://eth-goerli.alchemyapi.io/v2/_6bOgbwPlFyLvR95MhTQfYCFTDl7WcX9',
+    //   accounts: [privateKey]
+    // },
+    // bscTestnet: {
+    //   url: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
+    //   chainId: 97,
+    //   accounts: {
+    //     mnemonic: mnemonic
+    //   }
+    // },
+    // bsc: {
+    //   url: 'https://bsc-dataseed.binance.org',
+    //   chainId: 56,
+    //   accounts: {
+    //     mnemonic: mnemonic
+    //   }
+    // },
+    // ethereum: {
+    //   url: 'https://eth-mainnet.alchemyapi.io/v2/_0nmAqdvnREh77uNm3ilJR5W4wvCYNFX',
+    //   accounts: [privateKey]
+    // }
   },
   paths: {
     sources: './src/ethereum-hardhat/contracts',
