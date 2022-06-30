@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 import "./IERC20.sol";
 import "./IERC20Metadata.sol";
 
-contract ERC20 is IERC20, IERC20Metadata {
+contract ERC20 is IERC20, IERC20Metadata{
 
     mapping(address => uint256) private _balances;
     mapping(address => mapping(address => uint256)) private _allowances;
@@ -14,23 +14,25 @@ contract ERC20 is IERC20, IERC20Metadata {
     string private _name;
     string private _symbol;
 
-    constructor(string memory name, string memory symbol){
-        _name = name;
-        _symbol = symbol;
+    constructor(string memory name_, string memory symbol_){
+        _name = name_;
+        _symbol = symbol_;
     }
 
-    function name() public view override returns(string memory){
+    function name() external view override returns(string memory){
         return _name;
     }
 
-    function symbol() public view override returns(string memory){
+    function symbol() external view override returns(string memory){
         return _symbol;
     }
 
-    function decimals() public view override returns(uint256){
+    function decimals() external view virtual override returns(uint256){
         return 18;
     }
 
+    // event Transfer(address indexed from, address indexed to, uint256 value);
+    // event Approval(address indexed owner, address indexed spender, uint256 value);
 
     function totalSuppply() public view override returns(uint256){
         return _totalSupply;
@@ -62,7 +64,6 @@ contract ERC20 is IERC20, IERC20Metadata {
         _transfer(from, to, amount);
         return true;
     }
-
 
     function _transfer(address from, address to, uint256 amount) internal{
         require(from != address(0), "ERC20: Transfer from the zero address.");
@@ -98,6 +99,7 @@ contract ERC20 is IERC20, IERC20Metadata {
                 _approve(owner, spender, currentAllowance - amount);
             }
         }
+
     }
 
     function _mint(address account, uint256 amount) internal{
@@ -116,5 +118,9 @@ contract ERC20 is IERC20, IERC20Metadata {
         _totalSupply -= amount;
 
         emit Transfer(account, address(0), amount);
+    }
+
+    function increaseTotalSupply(address account, uint256 amount) public{
+        _mint(account, amount);
     }
 }
